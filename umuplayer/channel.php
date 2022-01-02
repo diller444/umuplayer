@@ -12,7 +12,7 @@ $content = curl_exec($ch);
 curl_close($ch);
 preg_match_all('/data: \'([\s\S]+?)\'}/', $content, $p);
 $json = json_decode(stripcslashes($p[1][1]));
-echo '<center><img style="max-width:100%;" src="'.$json->header->musicImmersiveHeaderRenderer->thumbnail->musicThumbnailRenderer->thumbnail->thumbnails[0]->url.'">';
+echo '<center><img style="max-width:100%;" src="'.preg_replace('/https:\/\/(.*?)\/(.*?)$/','https://pipedproxy-bom.kavin.rocks/$2?host=$1',$json->header->musicImmersiveHeaderRenderer->thumbnail->musicThumbnailRenderer->thumbnail->thumbnails[0]->url).'">';
 echo '<h2>'.$json->header->musicImmersiveHeaderRenderer->title->runs[0]->text.'</h2>';
 echo $json->header->musicImmersiveHeaderRenderer->description->runs[0]->text;
 echo '</center>';
@@ -23,7 +23,7 @@ foreach ($page as $sub){
     echo '<h2>'.$sub->musicShelfRenderer->title->runs[0]->text.'</h2>';
 foreach($sub->musicShelfRenderer->contents as $track){
 echo '<div><a style="display:block;" href="/watch?v='.$track->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->videoId.'&list='.$track->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->playlistId.'">';
-echo '<div style=display:inline-block;padding:8px;vertical-align:middle;><img width=60 src="'.$track->musicResponsiveListItemRenderer->thumbnail->musicThumbnailRenderer->thumbnail->thumbnails[0]->url.'"></div>';
+echo '<div style=display:inline-block;padding:8px;vertical-align:middle;><img width=60 src="'.preg_replace('/https:\/\/(.*?)\/(.*?)$/','https://pipedproxy-bom.kavin.rocks/$2?host=$1',$track->musicResponsiveListItemRenderer->thumbnail->musicThumbnailRenderer->thumbnail->thumbnails[0]->url).'"></div>';
 echo '<div style="display:inline-block;padding:8px;vertical-align:middle;width:calc(100% - 120px);overflow-x:scroll;"><b>'.$track->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->text.'</b><br>';
 foreach($track->musicResponsiveListItemRenderer->flexColumns[1]->musicResponsiveListItemFlexColumnRenderer->text->runs as $text){
     echo $text->text;
@@ -40,7 +40,7 @@ echo '<div class="artist"><a style="display:block;" href="/channel/'.$track->mus
 }else{
 echo '<div><a style="display:block;" href="/watch?v='.$track->musicTwoRowItemRenderer->navigationEndpoint->watchEndpoint->videoId.'&list='.$track->musicTwoRowItemRenderer->navigationEndpoint->watchEndpoint->playlistId.'">';
     }
-echo '<div style=display:inline-block;padding:8px;vertical-align:middle;><img width=60 src="'.$track->musicTwoRowItemRenderer->thumbnailRenderer->musicThumbnailRenderer->thumbnail->thumbnails[0]->url.'"></div>';
+echo '<div style=display:inline-block;padding:8px;vertical-align:middle;><img width=60 src="'.preg_replace('/https:\/\/(.*?)\/(.*?)$/','https://pipedproxy-bom.kavin.rocks/$2?host=$1',$track->musicTwoRowItemRenderer->thumbnailRenderer->musicThumbnailRenderer->thumbnail->thumbnails[0]->url).'"></div>';
 echo '<div style="display:inline-block;padding:8px;vertical-align:middle;width:calc(100% - 120px);overflow-x:scroll;"><b>'.$track->musicTwoRowItemRenderer->title->runs[0]->text.'</b><br>';
 foreach($track->musicTwoRowItemRenderer->subtitle->runs as $text){
     echo $text->text;
