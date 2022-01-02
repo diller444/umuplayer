@@ -1,7 +1,7 @@
 <?php
 echo '<!DOCTYPE HTML><html>';
 echo '<head><meta name="viewport" content="width=device-width, initial-scale=1"><link href="/css/main.css" rel="stylesheet"></head><body>';
-echo '<div class=header>umuplayer<form action="search.php"><center><input type=text id=poshuk name=q placeholder=Поиск><input type="submit" style="display:none;" value="пошук"></center></form></div><div class="content">';
+echo '<div class=header>umuplayer<form action="/search"><center><input type=text id=poshuk name=q placeholder=Поиск><input type="submit" style="display:none;" value="пошук"></center></form></div><div class="content">';
 $ch = curl_init('https://m.youtube.com/music');
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; Android 11; M2102J20SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36');
