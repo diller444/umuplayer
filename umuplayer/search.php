@@ -24,7 +24,7 @@ if($sub->musicResponsiveListItemRenderer->navigationEndpoint->browseEndpoint->br
 }else{
         echo '<div><a style="display:block;" href="/watch?v='.$sub->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->videoId.'&list='.$sub->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->playlistId.'">';
 }
-        echo '<div style=display:inline-block;padding:8px;vertical-align:middle;><img width=60 src="'.$sub->musicResponsiveListItemRenderer->thumbnail->musicThumbnailRenderer->thumbnail->thumbnails[0]->url.'"></div>';
+        echo '<div style=display:inline-block;padding:8px;vertical-align:middle;><img width=60 src="'.preg_replace('/https:\/\/(.*?)\/(.*?)$/','https://pipedproxy-bom.kavin.rocks/$2?host=$1',$sub->musicResponsiveListItemRenderer->thumbnail->musicThumbnailRenderer->thumbnail->thumbnails[0]->url).'"></div>';
         echo '<div style="display:inline-block;padding:8px;vertical-align:middle;width:calc(100% - 120px);overflow-x:scroll;"><b>'.$sub->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->text.'</b><br>';
 foreach($sub->musicResponsiveListItemRenderer->flexColumns[1]->musicResponsiveListItemFlexColumnRenderer->text->runs as $text){
     echo $text->text;
