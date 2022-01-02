@@ -18,7 +18,7 @@ foreach($page as $item){
     foreach($item->shelfRenderer->content->verticalListRenderer->items as $sub){
         echo '<div class="item">';
         echo '<a href="'.$sub->compactStationRenderer->navigationEndpoint->commandMetadata->webCommandMetadata->url.'">';
-        echo '<img src="'.$sub->compactStationRenderer->thumbnail->thumbnails[0]->url.'"><br>';
+        echo '<img src="'.preg_replace('/i9.ytimg.com/','pipedproxy-bom.kavin.rocks',$sub->compactStationRenderer->thumbnail->thumbnails[0]->url).'&host=i9.ytimg.com"><br>';
         echo $sub->compactStationRenderer->title->runs[0]->text;
         echo '<br>';
         echo $sub->compactStationRenderer->videoCountText->runs[0]->text.$sub->compactStationRenderer->videoCountText->runs[1]->text;
