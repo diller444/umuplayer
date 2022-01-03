@@ -30,6 +30,7 @@ foreach($track->musicResponsiveListItemRenderer->flexColumns[1]->musicResponsive
 }
 echo '</div></a></div>';
 }
+echo '<br><a style="text-decoration:underline;" href="/playlist?list='.$sub->musicShelfRenderer->contents[0]->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->playlistId.'&listen=1">Все треки</a>';
 }else{
         echo '<h2>'.$sub->musicCarouselShelfRenderer->header->musicCarouselShelfBasicHeaderRenderer->title->runs[0]->text.'</h2>';
 foreach($sub->musicCarouselShelfRenderer->contents as $track){
