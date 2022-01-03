@@ -8,7 +8,7 @@ An alternative front-end for YouTube Music
 - [x] Channels
 - [x] Playlists
 - [x] Homepage
-- [x] Uses piped.kavin.rocks proxy and API for images and audio
+- [x] Uses piped.kavin.rocks proxy and API for images, audio and (partially) playlists
 - [x] Open audio format (OPUS 160k)
 - [x] No connections to Google's servers
 - [x] Does not use official YouTube APIs
