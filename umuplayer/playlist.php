@@ -39,10 +39,11 @@ echo '<h2>'.$json->header->musicDetailHeaderRenderer->title->runs[0]->text.'</h2
 foreach($json->header->musicDetailHeaderRenderer->subtitle->runs as $text){
     echo $text->text;
 }
-echo '<br>Видео | <a style="text-decoration: underline;" href="?list='.$_GET["list"].'&listen=1">Треки</a></center>';
 $page = $json->contents->singleColumnBrowseResultsRenderer->tabs[0]->tabRenderer->content->sectionListRenderer->contents[0]->musicPlaylistShelfRenderer->contents;
 if(!$page){$album=true;$page = $json->contents->singleColumnBrowseResultsRenderer->tabs[0]->tabRenderer->content->sectionListRenderer->contents[0]->musicShelfRenderer->contents;
 }
+if($album){echo '<br>Видео | <a style="text-decoration: underline;" href="?list='.$_GET["list"].'&listen=1">Треки</a>';}
+echo '</center>';
 foreach ($page as $sub){
 echo '<div><a style="display:block;" href="/watch?v='.$sub->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->videoId.'&list='.$sub->musicResponsiveListItemRenderer->flexColumns[0]->musicResponsiveListItemFlexColumnRenderer->text->runs[0]->navigationEndpoint->watchEndpoint->playlistId.'">';
 if($album){
